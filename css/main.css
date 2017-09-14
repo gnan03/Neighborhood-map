@@ -1,0 +1,98 @@
+.header_menu {
+  display: none;
+}
+h1{
+  text-align: center;
+}
+html, body { 
+  height: 100%; 
+  width:100%; 
+  margin: 0; 
+  padding: 0; 
+}
+.container {
+  height: 100%;
+  position: relative;
+}
+.mapDiv { 
+  height: 100%; 
+  width:70%; 
+  position:relative; 
+}
+.fourSqAPIDiv{
+      font-family:"Lucida Sans Unicode";
+}
+.nav_list {
+    list-style-type: none;
+    padding: 0;
+    width:100%;
+}
+.nav_item {
+    list-style-type: none;
+    padding: 5px ;
+    width: 100%;
+    text-align: left;
+    font-family: "Arial";
+}
+.nextVenueItem {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+}
+.nextVenueHeader{
+  font-weight: bold;
+  padding-right:1%;
+}
+
+@media screen and (max-width: 549px) {
+.nav {
+    z-index: 10;
+    position: relative;
+    background-color: white;
+    width:40%;
+    position: absolute;
+    border:1px solid #ddd;
+    /* This trasform moves the drawer off canvas. */
+    -webkit-transform: translate(-300px, 0);
+    transform: translate(-300px, 0);
+    /* Optionally, we animate the drawer. */
+    transition: transform 0.3s ease;
+  }
+  .open {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+  }
+ .mapDiv{
+    width:100%;
+ }
+ .header_menu {
+    display: inline-block;
+    position: relative;
+    right: 0;
+    padding: 1em;
+   width:50%;
+  }
+ .header_menu svg {
+    width: 32px;
+    fill: #E0E0E0;
+    height:100%;    
+  }
+  /*.filterDiv{
+    display: none;
+  }*/
+}
+@media screen and (min-width:550px){
+  .mapDiv{
+    width:100%;
+  }
+}
+@media screen and (min-width: 850px) {
+.nav {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.mapDiv{
+    max-width:100%;
+}
+}

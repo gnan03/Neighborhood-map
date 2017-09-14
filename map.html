@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+
+<body>
+
+	<h1>Neighborhood Map</h1>
+	<p>Click on a location to view places of interest
+		nearby
+	</p>
+	<div class="header_menu">
+		<a id="menu" data-bind="click:displayMenu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"/>
+          </svg>
+        </a>
+	</div>
+	<div class="container">
+		<div id="drawer" data-bind="css:{open:isOpen, nav:true }">
+			<input id="filter" class="filterDiv" placeholder="Filter..."
+			 type="search" data-bind="value:query, valueUpdate:'keyup'">
+			<ul class="nav_list" data-bind="foreach:searchList">
+				<li class="nav_item"><a data-bind="text:name, click:$parent.openMarker"
+					 href=""></a>
+				</li>
+			</ul>
+		</div>
+		<div id="map" class="mapDiv"></div>
+		<div id="error" data-bind="visible:onError">
+			<p>Your request couldn't be completed due
+				to a technical error. Please try again
+				later.
+			</p>
+		</div>
+		<div id="fourSqAPI" class="fourSqAPIDiv"
+		 data-bind="visible:onSelect">
+			<h3>Other places of interest near&nbsp;
+				<span data-bind="text:selected"></span>
+			</h3>
+			<ul class="nextVenue" data-bind="foreach:nextVenueList">
+				<li class="nextVenueItem">
+					<div>
+						<h4><span data-bind="text:name"></span></h4>
+						<span class="nextVenueHeader">Address:</span>
+						<span data-bind="text:address"></span><br/>
+						<span class="nextVenueHeader">Hours:</span>
+						<span data-bind="text:hours"></span><br/>
+						<span class="nextVenueHeader">Type:</span>
+						<span data-bind="text:type"></span><br/>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script src="js/lib/knockout-3.2.0.js"></script>
+	<script src="js/script.js"></script>
+	<script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB_ufT2kc9lRfHYq6o2uIgXTA_21n9Fegw&v=3&callback=initialize"
+	 onerror="mapError()">
+	</script>
+	<script src="js/lib/jquery.min.js"></script>
+</body>
+
+</html>
